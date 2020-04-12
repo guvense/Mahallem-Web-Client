@@ -1,5 +1,14 @@
 # Mahallem Web Client
 
+### Clone the project
+
+`git clone https://github.com/guvense/Mahallem-Web-Client.git`
+
+### Install packages
+
+`cd <Project-Directory>`
+`npm install`
+
 ### Provides
 
 - react ^16.x
