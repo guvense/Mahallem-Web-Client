@@ -1,0 +1,76 @@
+.ant-layout-content.login {
+    
+    display: flex;
+    flex-direction: column;
+    justify-content:  flex-start;
+    align-items: center;
+    padding-left: 0 !important;
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(
+        0deg,
+        #0e5c25 0%,
+        rgba(206, 159, 29, 0.8) 100%),
+        url("../../assets/images/login-background.png") !important;
+
+        img{
+            margin-top: 150px;
+            min-width: 350px;
+            width: 30%;
+            opacity: 0.8;
+        }
+
+        ant-checkbox ant-checkbox-checked {
+            color: white;
+        }
+
+        .login-card {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 100px;
+            min-width: 25%;
+            width: 25%;
+            background: #164257;
+            border: 1px solid #ffffff;
+            border-radius: 7px;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+
+            .login-form-button {
+                width: 100px;
+                background: #93192a;
+                border-color: azure;
+                
+                &:hover{
+                    background: #b4191b;
+                }
+            }
+
+            .login-form-forgot {
+                text-decoration: underline;
+                color: #a72e2f;
+            }
+
+            .ant-card-body {
+                margin-top: 25px;
+            }
+
+            .ant-checkbox-wrapper {
+                color: white;
+            }
+
+            .ant-checkbox-inner {
+                border-color: #b4191b;
+            }
+
+            .ant-checkbox::after {
+                border-color: #b4191b;
+            }
+
+            .ant-checkbox-checked .ant-checkbox-inner {
+                background-color: #93192a;
+                border-color: #93192a;
+            }
+        }
+}
