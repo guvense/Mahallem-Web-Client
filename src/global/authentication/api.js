@@ -1,5 +1,5 @@
 import axios from 'axios';
-
+import { message } from 'antd'; 
 const api = {
     login({ username, password }){
         return axios.get(
@@ -12,15 +12,15 @@ const api = {
             }
         )
         .then(response => {
-            console.log("???")
-            console.log(response)
-            console.log("???")
-            localStorage.setItem('access_token', response.data.data.token);
 
-            return Promise.resolve(true);
-        }).catch(err => {
-            return Promise.reject({ error: err.response.data });
-        });
+            if (response.data.success === true){
+                localStorage.setItem('access_token', response.data.data.token);
+                return Promise.resolve(true)
+            }else{
+                message.error(response.data.error_message.message)
+                return Promise.reject({ error: response.data.error_message.message });
+            }
+        })
     },
 
     loadUser(){
@@ -32,8 +32,7 @@ const api = {
     
     getUser(){
         const access_token = localStorage.getItem("access_token")
-        console.log("&&&")
-        console.log(access_token)
+
         return axios.get( 
             "/user",
             {   params: {}, 
@@ -43,7 +42,8 @@ const api = {
     },
 
     logout() {
-        localStorage.clear();
+        //localStorage.clear();
+        localStorage.removeItem("access_token")
         return Promise.resolve(true);
     }
 }

@@ -25,32 +25,28 @@ const authSlice = createSlice({
     initialState,
     reducers: {
         loginRequest(state, action){
-            state.logging = true;
         },
         loginSuccess(state, action){
-            state.logging = false;
+            state.logging = true;
         },
         loadUserRequest(state, action){
-            state.loadingUser = true;
         },
         loadUserSuccess(state, action){
             const { user } = action.payload;
-            console("loaduserSuccess")
-            console.log(action.payload)
-            console("loaduserSuccess")
-
-            state.loadingUser = false;
+            state.loadingUser = true;
             state.user = user;
         },
-        logoutRequest(state, action ){// create unused reducers with createAction
+        logoutRequest(state, action ){
         },
         logoutSuccess(state, action ){
+            state.logging = false;
         },
         clear(state,action){
             state = Object.assign(state, initialState);
         },
         error(state, action){
             state.error = action.payload;
+            state.logging = false;
         }
     }
 });

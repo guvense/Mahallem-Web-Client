@@ -27,9 +27,6 @@ export function* loadUser(action){
     try {
 
         const data = yield call (authApi.loadUser);
-        console.log("----")
-        console.log(data)
-        console.log("----")
         yield put(loadUserSuccess(data));
     } catch (err) {
         yield put(error(err.toString()));

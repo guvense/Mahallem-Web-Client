@@ -7,62 +7,27 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { Form, Input, Button, Checkbox, Card, Alert } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
-import { loginRequest, WINDOW_EVENTS } from 'global/authentication/reducer';
-import { isAuthenticated } from 'global/authentication/utils';
-import { SERVER_URL } from 'utils/constants';
-import { useWindowEvent } from 'utils/useWindowEvent';
+import { loginRequest } from 'global/authentication/reducer';
 
 const LoginPage = (props) => {
-    const { user, error } = useSelector(state => state.authentication);
-    console.log("****")
-    console.log(user)
-    console.log("****")
+    const { user, error, logging } = useSelector(state => state.authentication);
     const history = useHistory();
-    let isAuth = isAuthenticated();
     let { from } = history.location.state || { from: { pathname: '/'} };
 
     useEffect(() => {
-        console.log("useeffect")
-        console.log(isAuth)
-        console.log(user.id)
-        console.log(from)
-        if (isAuth && user.id ){
+        if (logging){
             history.push(from);
         }
-    }, [history, isAuth, from, user.id]);
-
-    const [userData, setUserData ] = useState({username: '', password: ''});
-    const [loginLoaded] = useState(true);
+    }, [history, logging, from, user.id]);
 
     const dispatch = useDispatch();
 
-    useWindowEvent("message", (event) => onMessage(event));
-
-    const onMessage = (event) => {
-        if (event.origin.startsWith(SERVER_URL)){
-            console.log(event.data)
-            const { type } = event.data;
-
-            if (type === WINDOW_EVENTS.LOGIN_RECEIVE_DATA){
-                dispatch(loginRequest(userData));
-            }
-        }
-    }
-
     const onFinish = values => {
-        console.log(loginLoaded)
-        console.log(values)
-        if(loginLoaded){
-            setUserData(values);
-            dispatch(loginRequest(values))
-        } else {
-            console.log("Please try again later...");
-            dispatch(error("Please try again later"));
-        }
+        dispatch(loginRequest(values))
     };
 
     const onFinishFailed = errorInfo => {
-        console.log("Failed.:", errorInfo);
+        console.log("Failed:", errorInfo);
     }
 
     return (
