@@ -1,0 +1,21 @@
+.logo-base {
+    width: 200px;
+    height: 200px;
+    margin-left: 40px;
+}
+
+.form-item-base {
+    width: 300px;
+    height: 40px;
+}
+
+.form-button-base {
+    width: 100px;
+    background: #58B3EE;
+    border-color: azure;
+
+
+    &:hover {
+        background: #b4191b;
+    }
+}

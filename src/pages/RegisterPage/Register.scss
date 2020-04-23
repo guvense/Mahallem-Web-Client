@@ -1,0 +1,45 @@
+@import '../../global/design/tools.scss';
+
+.register-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: -100px;
+    min-width: 25%;
+    width: 25%;
+    background: #164257;
+    border: 1px solid #ffffff;
+    border-radius: 7px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    right: 50%;
+    transform: translate(-50%, 20%);
+
+    .save-form-button {
+        margin-left: 100px;
+        @extend .form-button-base
+    }
+
+    .logo {
+
+        @extend .logo-base
+    }
+
+    .form-item {
+        @extend .form-item-base
+    }
+
+    .ant-card-body {
+        margin-top: 50px;
+    }
+
+    .ant-checkbox-wrapper {
+        color: white;
+    }
+
+    .ant-checkbox-inner {
+        border-color: #b4191b;
+    }
+}
