@@ -1,26 +1,32 @@
-import React from 'react';
+import React from "react";
 
-import { 
-    HomePage,
-    LoginPage,
-} from 'pages';
+import { HomePage, LoginPage, RegisterPage } from "pages";
 
 export const routes = [
-    {
-        path: '/',
-        component: HomePage,
-        protect: true,
+  {
+    path: "/",
+    component: HomePage,
+    protect: true,
+  },
+  {
+    path: "/login",
+    component: LoginPage,
+    layoutProps: {
+      disableHeader: true,
+      disableSidebar: true,
+      disableFooter: true,
     },
-    {
-        path: '/login',
-        component: LoginPage,
-        layoutProps: {
-            disableHeader: true,
-            disableSidebar: true,
-            disableFooter: true,
-        },
+  },
+  {
+    path: "/register",
+    component: RegisterPage,
+    layoutProps: {
+      disableHeader: true,
+      disableSidebar: true,
+      disableFooter: true,
     },
-    /*
+  },
+  /*
     {
         path: '/page-sample',
         component: LoginPage,
