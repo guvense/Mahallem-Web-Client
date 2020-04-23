@@ -8,10 +8,12 @@ import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { Form, Input, Button, Checkbox, Card, Alert } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
-import { loginRequest } from "global/authentication/reducer";
+import { loginRequest, setRegisterStatus } from "global/authentication/reducer";
 
 const LoginPage = (props) => {
-  const { user, error, logging } = useSelector((state) => state.authentication);
+  const { user, error, logging, registered } = useSelector(
+    (state) => state.authentication
+  );
   const history = useHistory();
   let { from } = history.location.state || { from: { pathname: "/" } };
   const registerPath = "/register";
@@ -29,6 +31,7 @@ const LoginPage = (props) => {
   };
 
   const onRegister = () => {
+    dispatch(setRegisterStatus(false));
     history.push(registerPath);
   };
 

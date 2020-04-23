@@ -25,6 +25,9 @@ const authSlice = createSlice({
   name,
   initialState,
   reducers: {
+    setRegisterStatus(state, action) {
+      state.registered = action.payload;
+    },
     loginRequest(state, action) {},
     registerRequest(state, action) {},
     registerSuccess(state, action) {
@@ -62,6 +65,7 @@ export const {
   loadUserSuccess,
   registerRequest,
   registerSuccess,
+  setRegisterStatus,
   clear,
   error,
 } = authSlice.actions;
