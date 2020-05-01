@@ -17,9 +17,10 @@ const initialState = {
   authorities: [],
   error: null,
   registered: false,
+  isAuthorized: false,
 };
 
-const name = "authenticate";
+const name = "authentication";
 
 const authSlice = createSlice({
   name,
@@ -35,16 +36,18 @@ const authSlice = createSlice({
     },
     loginSuccess(state, action) {
       state.logging = true;
+      state.isAuthorized = true;
     },
     loadUserRequest(state, action) {},
     loadUserSuccess(state, action) {
       const { user } = action.payload;
       state.loadingUser = true;
-      state.user = user;
+      state.user = user.data;
     },
     logoutRequest(state, action) {},
     logoutSuccess(state, action) {
       state.logging = false;
+      state.isAuthorized = false;
     },
     clear(state, action) {
       state = Object.assign(state, initialState);

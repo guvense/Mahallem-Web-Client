@@ -1,5 +1,6 @@
 import axios from "axios";
 import { message } from "antd";
+
 const api = {
   login({ username, password }) {
     return axios
@@ -48,15 +49,16 @@ const api = {
 
   getUser() {
     const access_token = localStorage.getItem("access_token");
-
     return axios.get("/user", {
       params: {},
-      headers: { Authorization: `Bearer ${access_token}` },
-    });
+      headers: {
+        Authorization: `Bearer ${access_token}`
+      },
+    })
   },
 
   logout() {
-    //localStorage.clear();
+    localStorage.clear();
     localStorage.removeItem("access_token");
     return Promise.resolve(true);
   },

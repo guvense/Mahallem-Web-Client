@@ -10,12 +10,18 @@
 }
 
 .form-button-base {
-    width: 100px;
-    background: #58B3EE;
+    width: 110px;
+    background: #43A1F3;
     border-color: azure;
+    height: 40px;
+
 
 
     &:hover {
         background: #b4191b;
     }
+}
+
+.menu-base {
+    background-color: #FFFFFF;
 }

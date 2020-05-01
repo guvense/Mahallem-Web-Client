@@ -70,9 +70,6 @@ const LoginPage = (props) => {
             />
           </Form.Item>
           <Form.Item>
-            <Form.Item name="remember" valuePropName="checked" noStyle>
-              <Checkbox> Remember Me </Checkbox>
-            </Form.Item>
             <a className="login-form-forgot" href="">
               Forgot Password?
             </a>
