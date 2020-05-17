@@ -19,23 +19,13 @@ export const PrivateRouteComponent = ({
     ...rest
 }) => {
 
-    const { permissions } = useSelector(state => state.authentication);
-    const isAuthorized = hasAnyPermission(permissions, hasAnyPermissions);
+    const { isAuthorized } = useSelector(state => state.authentication);
 
-    const checkAuthorities = props => 
-        isAuthorized ? (
-            <Component {...props} />
-        ) : (
-            <div className="insufficient-authority">
-            You are not authorized to access this page.
-            </div>
-        );
+
     
     const renderRedirect = props => {
 
-        return isAuth ? (
-            checkAuthorities(props)
-        ) : (
+        return (
 
             <Redirect
                 to={{
@@ -46,7 +36,16 @@ export const PrivateRouteComponent = ({
         );
     };
 
-    return <Route {...rest} render={renderRedirect} />;
+
+   return (
+   
+    isAuthorized ? (
+        <Component  />
+    ) : (
+        <Route {...rest} render={renderRedirect} />
+    )
+   
+    )
 };
 
 export default PrivateRouteComponent;

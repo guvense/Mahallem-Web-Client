@@ -24,6 +24,7 @@
 
     .logo {
 
+        margin-left: 40px;
         @extend .logo-base
     }
 
@@ -32,7 +33,7 @@
     }
 
     .ant-card-body {
-        margin-top: 50px;
+        
     }
 
     .ant-checkbox-wrapper {
@@ -41,5 +42,14 @@
 
     .ant-checkbox-inner {
         border-color: #b4191b;
+    }
+    .plus-button {
+        float: right;
+        @extend .back-go-button-size;
+       
+    }
+    .back-button {
+        float: left;
+        @extend .back-go-button-size;
     }
 }

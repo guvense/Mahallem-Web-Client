@@ -69,14 +69,7 @@ const LoginPage = (props) => {
               className="form-item"
             />
           </Form.Item>
-          <Form.Item>
-            <Form.Item name="remember" valuePropName="checked" noStyle>
-              <Checkbox> Remember Me </Checkbox>
-            </Form.Item>
-            <a className="login-form-forgot" href="">
-              Forgot Password?
-            </a>
-          </Form.Item>
+
           <Form.Item>
             <Button
               type="primary"

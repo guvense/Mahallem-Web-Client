@@ -16,6 +16,8 @@
 
 
   .logo {
+    margin-left: 40px;
+
     @extend .logo-base
   }
 
@@ -51,7 +53,8 @@
 
     .login-form-forgot {
       text-decoration: underline;
-      color: #a72e2f;
+      float: right;
+      color: #312a5b;
     }
 
     .ant-card-body {

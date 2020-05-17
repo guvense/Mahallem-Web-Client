@@ -1,16 +1,36 @@
 import '../Pages.scss';
 import './HomePage.scss';
+import { useSelector, useDispatch } from "react-redux";
+import { Form, Input, Button, Checkbox, Card, Alert } from "antd";
+import { logoutRequest } from "global/authentication/reducer";
+
 
 import React from 'react';
-import { connect } from 'react-redux';
 
 const HomePage = ({}) => {
-    return <div>Home Page</div>;
+
+    const dispatch = useDispatch();
+
+
+    const { user } = useSelector(
+        (state) => state.authentication
+      );
+
+    const logOut = () => {
+        dispatch(logoutRequest());
+    }
+
+    return( 
+        <>
+        
+        <div>Welcome {user.user_name}</div>
+        <Button
+        type="primary"
+        htmlType="submit"
+        onClick={logOut}
+      > Log out</Button>
+        </> );
 };
 
-const mapStateToProps = (state) => ({});
 
-const mapDispatchToProps = {};
-HomePage.propTypes = {};
-
-export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
+export default HomePage;

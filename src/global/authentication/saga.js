@@ -51,7 +51,6 @@ export function* logoutFlow(action) {
   try {
     yield call(authApi.logout);
     yield put(logoutSuccess());
-    window.location.replace("/login");
   } catch (err) {
     yield put(error(err.toString()));
   }
