@@ -1,12 +1,15 @@
 import { useHistory } from "react-router-dom";
 import React, { useEffect } from "react";
-import { Form, Input, Button, Card } from "antd";
+import { Form, Input, Button, Card, Icon } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import { useSelector, useDispatch } from "react-redux";
 import Logo from "../../assets/images/M.png";
 import { registerRequest } from "global/authentication/reducer";
 import "./Register.scss";
 import "../../global/design/tools.scss";
+import  GoBack from "../../assets/images/go-back.png"
+import  GoNext from "../../assets/images/plus-button.png"
+
 
 const RegisterPage = (props) => {
   const history = useHistory();
@@ -28,6 +31,10 @@ const RegisterPage = (props) => {
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
+
+  const goBack = () => {
+    history.push(from);
+  }
 
   return (
     <>
@@ -83,13 +90,10 @@ const RegisterPage = (props) => {
             />
           </Form.Item>
           <Form.Item>
-            <Button
-              type="primary"
-              htmlType="submit"
-              className="save-form-button"
-            >
-              Save
-            </Button>
+             
+            <input type="image" src={GoNext} alt="Submit Form" className="plus-button" />
+            <input type="image" src={GoBack} className="back-button"  onClick={goBack}/>
+            
           </Form.Item>
         </Form>
       </Card>

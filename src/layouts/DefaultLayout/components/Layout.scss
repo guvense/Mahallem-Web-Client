@@ -10,12 +10,47 @@
     color: blue;
 }
 
-.logo {
-    height: 32px;
-    background: rgba(255, 255, 255, 0.2);
-    margin: 16px;
-}
-
 .ant-menu-item a {
     color: white;
 }
+
+@import '../../../global/design/tools.scss';
+
+.logo {
+
+    width: 200px;
+
+    @extend .logo-base
+}
+
+.header {
+    background-color: white;
+
+}
+.header-div {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+
+
+  }
+
+  .header-div:first-child {
+   margin-left: 100px;
+  }
+  .header-div:last-child{
+    margin-right: 100px;
+   }
+
+   .arrow-icon {
+    transform:  rotate(-90deg);
+   }
+
+   .header-element {
+       width: 200px;
+       height: 50px;
+       font-size: 20px;
+       color: #000000;
+
+   }

@@ -26,7 +26,7 @@ const api = {
       .post("/auth/register", {
         first_name: firstname,
         last_name: lastname,
-        user_name: username,
+        username: username,
         password: password,
       })
       .then((response) => {

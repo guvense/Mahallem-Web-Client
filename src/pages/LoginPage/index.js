@@ -69,11 +69,7 @@ const LoginPage = (props) => {
               className="form-item"
             />
           </Form.Item>
-          <Form.Item>
-            <a className="login-form-forgot" href="">
-              Forgot Password?
-            </a>
-          </Form.Item>
+
           <Form.Item>
             <Button
               type="primary"

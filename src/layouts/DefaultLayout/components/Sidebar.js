@@ -3,7 +3,6 @@ import { routes } from 'routes';
 
 import { Layout, Menu } from 'antd';
 import history from 'utils/history';
-import Logo from '../../../assets/images/M.png';
 import "../../../global/design/tools.scss";
 
 const { Sider } = Layout;
@@ -19,9 +18,6 @@ const DefaultSidebar = (props) => {
 
     return (
         <Sider collapsible collapsed={collapsed} className = "menu-base" onCollapse={() => setCollapsed( prevState => !prevState)}>
-            <div className="logo">
-            <img src={Logo} className="logo" alt="Mahallem" />
-            </div>
             <Menu className = "menu-base" mode="inline" selectedKeys={selectedKeys}>
                 {routes.filter( route => route.sidebar).map( (route, index) => {
                     return (

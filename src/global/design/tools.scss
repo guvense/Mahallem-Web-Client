@@ -1,7 +1,6 @@
 .logo-base {
     width: 200px;
     height: 200px;
-    margin-left: 40px;
 }
 
 .form-item-base {
@@ -11,17 +10,24 @@
 
 .form-button-base {
     width: 110px;
-    background: #43A1F3;
-    border-color: azure;
     height: 40px;
-
+    background: rgba(2, 117, 216, 0.93);
+    border: 1px solid #3A9DF3;
+    box-sizing: border-box;
+    border-radius: 4px;
 
 
     &:hover {
-        background: #b4191b;
+        background: #3A9DF3;
     }
 }
 
 .menu-base {
     background-color: #FFFFFF;
+}
+
+.back-go-button-size {
+
+    height: 34px;
+    width: 34px;
 }
