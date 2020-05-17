@@ -58,7 +58,7 @@ const api = {
   },
 
   logout() {
-    localStorage.clear();
+   // localStorage.clear();
     localStorage.removeItem("access_token");
     return Promise.resolve(true);
   },
