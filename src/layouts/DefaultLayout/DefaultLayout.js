@@ -14,7 +14,7 @@ const DefaultLayout = ({
     disableHeader,
     disableSidebar,
     disableFooter,
-    currentRoute,
+    currentRoute,    
 }) => {
     return (
         <Layout style={{ minHeight: '100vh' }}>
