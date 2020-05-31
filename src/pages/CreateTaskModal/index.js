@@ -26,20 +26,25 @@ const CreateTaskModal = (props) => {
     };
 
     const onFinish = (values) => {
-      console.log(values);
       values.deadline = values.deadline.format('YYYY-DD-MM')
       dispatch(createTaskRequest(values));
+      handleClose()
     };
+
+    const datePickerStyle = {
+      borderRadius: "7px"
+    }
 
     return (
       <> 
     <Modal visible={createTaskPopUpShow} onCancel={handleClose} footer={null}>
     <h1>Creating Task</h1>
     <CustomIcon name="bookmarker" style={styles} className="book-marker" width={50} height={50}/>
+    <CustomIcon name="create-task" className="create-task-icon" width={40} height={40}/>
     <Form
     name="creating_task"
     className="creating-task-layout"
-    initialValues={{ remember: true }}
+    initialValues={{ remember: false }}
     onFinish={onFinish}
   >
   <div>
@@ -48,7 +53,7 @@ const CreateTaskModal = (props) => {
   name="deadline"
   rules={[{ required: true, message: "DeadLine" }]}
   >
-  <DatePicker  format={'YYYY-DD-MM'} />
+  <DatePicker  format={'YYYY-DD-MM'} style={datePickerStyle}/>
 
   </Form.Item>
 
@@ -81,9 +86,8 @@ const CreateTaskModal = (props) => {
 
 <Form.Item className="plus-button">
 <label>
-  <CustomIcon name="plus-button"  width={60} height={60}/>
-  <input type="image" alt="Submit Form"/>
-  
+  <input type="submit" name="image" value="one"></input>
+  <CustomIcon name="plus-button"  className="plus-button" width={60} height={60}/>
 </label>
 </Form.Item>
 
