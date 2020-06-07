@@ -5,6 +5,10 @@ import {Modal, Button, Form, Input,DatePicker } from "antd";
 import "./CreateTaskModal.scss"
 import CustomIcon from "assets/svg/CustomIcon"
 import { createTaskRequest } from "./reducer";
+import { makeStyles } from "@material-ui/core/styles";
+import {MenuItem, FormControl, Select,InputLabel,ListItemIcon} from "@material-ui/core";
+
+import { retriveHomeMatesRequest } from "../HomeController/reducer";
 
 
 const CreateTaskModal = (props) => {
@@ -13,9 +17,33 @@ const CreateTaskModal = (props) => {
         (state) => state.header
       );
 
+      const { homemates } = useSelector(
+        (state) => state.home
+      );
+
+      const useStyles = makeStyles(() => ({
+        formControl: {
+          minWidth: 350,
+          borderRadius: 7
+        }
+      }));
+
+      const [issuerUsername, setIssuerUsername] = React.useState("");
+
+      const handleChange = event => {
+        setIssuerUsername(event.target.value);
+      };
+
+    const classes = useStyles();
+
     const dispatch = useDispatch();
 
     const handleClose = () =>  dispatch(hideCreateTask());
+    const retriveHomeMates = () => {
+      if (typeof homemates === 'undefined' || homemates.length == 0) {
+        dispatch(retriveHomeMatesRequest())
+    }
+      }
 
     const styles = {
       display: "flex",
@@ -69,10 +97,27 @@ const CreateTaskModal = (props) => {
     <Form.Item
     name="issue"
     >
-    <Input
-      placeholder="Issuer"
-      className="form-item"
-    />
+
+    <FormControl variant="outlined" className={classes.formControl}  >
+    <InputLabel >Issuer</InputLabel>
+    <Select
+      value={issuerUsername}
+      onChange={handleChange}
+      label="Issuer Name"
+      onOpen ={retriveHomeMates}
+    
+    >
+      <MenuItem value="" key="">
+        <em>None</em>
+      </MenuItem>
+      {homemates.map(val => (
+        <MenuItem key={val.id} value={val.first_name}>
+        <CustomIcon name="user" width={30} height={30}/> {val.first_name}
+        </MenuItem>
+    ))}
+    </Select>
+  </FormControl>
+
   </Form.Item>
   <Form.Item
   name="description"
