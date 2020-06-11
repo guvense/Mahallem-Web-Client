@@ -30,7 +30,7 @@ const getViewBox = name => {
           return (
             <svg  width={props.width} height={props.height} className={props.className} style={props.style} viewBox={props.viewBox} fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle id="circle" cx="26" cy="26" r="26" fill="white" />
-            <path d="M25.8803 2.88889V49.1111M2.88892 26.651H49.1111" stroke="#0275D8" stroke-width="4" stroke-linecap="round"/>
+            <path d="M25.8803 2.88889V49.1111M2.88892 26.651H49.1111" stroke="#0275D8" stroke-width="3" stroke-linecap="round"/>
             <circle cx="26" cy="26" r="25.5" stroke="#C4C4C4" stroke-opacity="0.63"/>
             </svg>
           )
@@ -44,7 +44,7 @@ const getViewBox = name => {
         case "user":
 
             
-          const colors = ["#0275D8", "#D82222", "#FFB00A", "#43A4F3", "#E773B7", "#FFB00A"]
+          const colors = ["#0275D8", "#D82222", "#FFB00A", "#43A4F3", "#FFB00A"]
 
           var indexfirst = 0 + Math.floor((colors.length - 1) * Math.random());
           var indexSecond = 0 + Math.floor((colors.length - 1) * Math.random());

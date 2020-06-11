@@ -1,5 +1,5 @@
 
- @import '../../global/design/tools.scss';
+ @import '../../../global/design/tools.scss';
 
 .ant-modal-content {
 background: #FFFFFF;
@@ -49,10 +49,6 @@ height: 630px;
     right: 80px;
     top: 95px;
 
-    &:hover {
-        top: 105px;
-    }
-
 }
 .plus-button{
 
@@ -68,6 +64,7 @@ h1 {
     position: absolute;
     left: 80px;
     top: 100px;
+    font-family: 'Roboto';
     @extend .form-title
 }
 .book-marker {

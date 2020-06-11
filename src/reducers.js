@@ -9,7 +9,7 @@ import history from "utils/history";
 import languageProviderReducer from "global/LanguageProvider/reducer";
 import authenticate from "global/authentication/reducer";
 import header from "../src/layouts/DefaultLayout/components/menu/reducer"
-import createTask from "./pages/CreateTaskModal/reducer"
+import createTask from "./pages/TaskPage/reducer"
 import home from "./pages/HomeController/reducer"
 
 /**

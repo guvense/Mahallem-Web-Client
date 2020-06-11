@@ -3,7 +3,7 @@ import './HomePage.scss';
 import { useSelector, useDispatch } from "react-redux";
 import { Form, Input, Button, Checkbox, Card, Alert } from "antd";
 import { logoutRequest } from "global/authentication/reducer";
-import CreateTaskModal from "../CreateTaskModal"
+import CreateTaskModal from "../TaskPage/CreateTaskModal"
 
 
 import React from 'react';

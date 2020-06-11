@@ -1,14 +1,13 @@
 import React , { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from "react-redux";
-import { hideCreateTask } from "../../layouts/DefaultLayout/components/menu/reducer";
-import {Modal, Button, Form, Input,DatePicker } from "antd";
+import { hideCreateTask } from "../../../layouts/DefaultLayout/components/menu/reducer";
+import {Modal, Input, Form,DatePicker } from "antd";
 import "./CreateTaskModal.scss"
 import CustomIcon from "assets/svg/CustomIcon"
-import { createTaskRequest } from "./reducer";
+import { createTaskRequest } from "../reducer";
 import { makeStyles } from "@material-ui/core/styles";
-import {MenuItem, FormControl, Select,InputLabel,ListItemIcon} from "@material-ui/core";
-
-import { retriveHomeMatesRequest } from "../HomeController/reducer";
+import {MenuItem, FormControl, Select,InputLabel} from "@material-ui/core";
+import { retriveHomeMatesRequest } from "../../HomeController/reducer";
 
 
 const CreateTaskModal = (props) => {
@@ -62,6 +61,8 @@ const CreateTaskModal = (props) => {
     const datePickerStyle = {
       borderRadius: "7px"
     }
+
+    const { TextArea } = Input;
 
     return (
       <> 
@@ -123,10 +124,9 @@ const CreateTaskModal = (props) => {
   name="description"
   rules={[{ required: true, message: "Description" }]}
 >
-  <Input
-    placeholder="Description"
-    className="form-item form-desc"
-  />
+<TextArea rows={4}    
+          placeholder="Description"
+          className="form-item form-desc"/>
 </Form.Item>
 
 <Form.Item className="plus-button">
