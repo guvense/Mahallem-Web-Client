@@ -1,9 +1,13 @@
 import { all, spawn, call } from 'redux-saga/effects';
 import authSaga from 'global/authentication/saga';
+import taskSaga from './pages/TaskPage/saga'
+import homeSage from './pages/HomeController/saga'
 
 export default function* rootSaga () {
     const sagas = [
-        authSaga
+        authSaga,
+        taskSaga,
+        homeSage
     ];
 
     yield all(sagas.map(saga =>

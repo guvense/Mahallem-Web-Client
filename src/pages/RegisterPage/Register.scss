@@ -29,7 +29,8 @@
     }
 
     .form-item {
-        @extend .form-item-base
+        width: 300px;
+        height: 40px;
     }
 
     .ant-card-body {

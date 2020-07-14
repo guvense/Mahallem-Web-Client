@@ -3,12 +3,37 @@ import Logo from "../../../assets/images/M.png";
 import {Avatar,Menu, Dropdown } from "antd";
 import "./Layout.scss";
 import { UserOutlined, EnterOutlined } from "@ant-design/icons";
-import TaskManagement from "./menu/TaskManagement"
 import Notification from "./menu/Notification"
 import Pet from "./menu/Pet"
 import Social from "./menu/Social"
+import { useSelector, useDispatch } from "react-redux";
+import { showCreateTask } from "./menu/reducer";
+
 
 const Header = (props) => {
+
+  const dispatch = useDispatch();
+
+  const showTaskManagement = () => {
+    dispatch(showCreateTask());
+  };
+
+
+  const TaskManagement = (
+      <Menu>
+        <Menu.Item onClick = {showTaskManagement}>
+            Create Task
+        </Menu.Item>
+        <Menu.Item>
+          <a target="_blank" rel="noopener noreferrer" href="http://www.taobao.com/">
+            List my Task
+          </a>
+        </Menu.Item>
+      </Menu>
+  )
+
+
+
     return (
         <> 
         
