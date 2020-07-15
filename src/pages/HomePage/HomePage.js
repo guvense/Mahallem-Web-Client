@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Form, Input, Button, Checkbox, Card, Alert } from "antd";
 import { logoutRequest } from "global/authentication/reducer";
 import CreateTaskModal from "../TaskPage/CreateTaskModal"
+import UserInfoPage from "../UserInfoPage"
 
 
 import React from 'react';
@@ -24,7 +25,6 @@ const HomePage = ({}) => {
     return( 
         <>
         <CreateTaskModal/>
-        <div>Welcome {user.user_name}</div>
         <Button
         type="primary"
         htmlType="submit"
