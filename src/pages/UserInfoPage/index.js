@@ -3,16 +3,29 @@ import { useSelector, useDispatch } from "react-redux";
 import CustomIcon from "assets/svg/CustomIcon"
 import { makeStyles } from "@material-ui/core/styles";
 import "./UserInfo.scss";
-import {MenuItem, FormControl, Select,Button, Card,CardContent,Typography,CardHeader} from "@material-ui/core";
+import {Button, Card,CardContent,Typography} from "@material-ui/core";
+import { retrieveUserInfoRequest } from "./reducer";
 
 const UserInfoPage = (props) => {
 
+    const { userInfo } = useSelector((state) => state.user);
 
-    const username = "guven"
-    const fullname = "Güven Seçkin"
-    const email = "guven.seckin.4@gmail.com"
-    const phone = "0507 140 1254"
-    const age = "25"
+    console.log(userInfo)
+
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+      
+        dispatch(retrieveUserInfoRequest());
+  
+    }, []);
+
+
+    const checkKey = ([key,value],i) => {
+
+      return value !== null && key != "id" ? true : false
+
+    }
 
     return (
         <> 
@@ -22,11 +35,10 @@ const UserInfoPage = (props) => {
         <CustomIcon name="bookmarker"  className="book-marker" width={60} height={60}/>
         <CustomIcon name="empty-user-with-plus" width={100} height={100} className="empty-user"></CustomIcon>
         <Typography className="card-item">
-            <div><CustomIcon name="pre-line" width={30} height={30}></CustomIcon>{username}</div>
-            <div><CustomIcon name="pre-line" width={30} height={30}></CustomIcon>{fullname}</div>
-            <div><CustomIcon name="pre-line" width={30} height={30}></CustomIcon>{email}</div>
-            <div><CustomIcon name="pre-line" width={30} height={30}></CustomIcon>{phone}</div>
-            <div><CustomIcon name="pre-line" width={30} height={30}></CustomIcon>{age}</div>
+
+        {Object.entries(userInfo).filter(checkKey).map(([key,value],i)  => value!==null && (
+          <div><CustomIcon name="pre-line" width={30} height={30}></CustomIcon>{value}</div>
+        ))}
         </Typography>
         </CardContent>
        
@@ -41,3 +53,6 @@ const UserInfoPage = (props) => {
 
 
 export default UserInfoPage;
+
+
+
