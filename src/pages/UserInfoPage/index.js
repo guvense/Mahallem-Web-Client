@@ -1,24 +1,28 @@
 import React , { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import CustomIcon from "assets/svg/CustomIcon"
-import { makeStyles } from "@material-ui/core/styles";
 import "./UserInfo.scss";
 import {Button, Card,CardContent,Typography} from "@material-ui/core";
-import { retrieveUserInfoRequest } from "./reducer";
+import { retrieveUserInfoRequest,closeUserUpdateModal,openUserUpdateModal } from "./reducer";
+import AddUserInfo from "./AddUserInfo"
+import CustomModal from "../CustomModal"
 
 const UserInfoPage = (props) => {
 
-    const { userInfo } = useSelector((state) => state.user);
-
-    console.log(userInfo)
+    const { userInfo,userInfoUpdateModalStatus } = useSelector((state) => state.user);
 
     const dispatch = useDispatch();
+
+    const closeModal = () => {
+      dispatch(closeUserUpdateModal());
+    }
+
 
     useEffect(() => {
       
         dispatch(retrieveUserInfoRequest());
-  
-    }, []);
+        
+  }, [userInfoUpdateModalStatus]);
 
 
     const checkKey = ([key,value],i) => {
@@ -27,8 +31,16 @@ const UserInfoPage = (props) => {
 
     }
 
+    const onModal = () => {
+      dispatch(openUserUpdateModal());
+    }
+
+
     return (
         <> 
+        <CustomModal isOpen={userInfoUpdateModalStatus} onClose={closeModal}>
+        <AddUserInfo/>
+        </CustomModal>
 
         <Card className = "card">
         <CardContent className="card-content">
@@ -40,13 +52,15 @@ const UserInfoPage = (props) => {
           <div><CustomIcon name="pre-line" width={30} height={30}></CustomIcon>{value}</div>
         ))}
         </Typography>
-        </CardContent>
+        
        
         <Button
-        className="update-button"
+        className="update-button card-item"
+        onClick = {onModal}
       >
         Update
       </Button>
+      </CardContent>
         </Card>
         </>)
 }

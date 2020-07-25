@@ -6,25 +6,23 @@
     box-sizing: border-box  !important;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.49) !important;
     border-radius: 2px !important;
-    height: 500px;
     width: 500px;
     margin: 0 auto;
+
 
     .card-content{
 
         .empty-user{
-            margin-top:-20px;
+            margin-top:0px;
             margin-left: auto;
             margin-right: auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            display: flex;  
         }
         .book-marker {
         
-            position: relative;
+            @extend .base-book-marker;
             top:-28px;
-            left: 410px;
+                     
         }
     }
 
@@ -33,7 +31,7 @@
         display: flex;
         flex-direction: column;
         align-items: left;
-        margin-top: 30px;
+        margin-top: 40px;
         margin-left: 20px;
       
             div + div {
@@ -44,9 +42,42 @@
     }
     .update-button {
         position: relative;
-        bottom: -90px;
-        left: 350px;
+        bottom: 0px;
+        left: 300px;
         color: white;
         @extend .form-button-base
     }
 }
+.add-user-info-card{
+
+   
+    width: 70vh;
+    align-items: center;
+
+    .card-content {
+        display: flex;
+        flex-direction: column;
+        margin-left: auto;
+        margin-right: auto; 
+        
+
+        .text-field {
+            width: 350px;
+            @extend .center;
+            margin-top: 40px;
+        }
+
+     
+
+        .text-field + .text-field{
+            margin-top: 30px;
+        }
+    }
+    .plus-button{
+        @extend .center;
+        margin-top: 20px;
+    }
+
+}
+
+

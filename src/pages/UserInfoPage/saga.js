@@ -2,6 +2,8 @@ import { takeLatest, call, put } from "redux-saga/effects";
 import {
     retrieveUserInfoRequest,
     retrieveUserInfoSuccess,
+    updateUserInfoRequest,
+    updateUserInfoSuccess,
     error
 } from "./reducer";
 
@@ -16,6 +18,20 @@ export function* retrieveUserInfoFlow(action) {
     }
   }
 
+export function* updateUserInfoFlow(action) {
+    try {
+      const res = yield call(userApi.updateUserInfo, action.payload);
+      console.log(res);
+      yield put(updateUserInfoSuccess());
+    } catch (err) {
+      const {
+        error: { detail },
+      } = err;
+      yield put(error(detail));
+    }
+  }
+
 export default function* rootSaga() {
   yield takeLatest(retrieveUserInfoRequest.type, retrieveUserInfoFlow);
+  yield takeLatest(updateUserInfoRequest.type, updateUserInfoFlow);
 }

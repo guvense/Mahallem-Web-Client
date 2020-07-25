@@ -1,0 +1,19 @@
+
+@import '../design/tools.scss';
+.plus-button{
+
+    @extend .base-plus-button;
+
+
+}
+
+label:hover{
+    cursor: pointer;
+}
+
+input[type="submit"]{
+    &:hover {
+        top: 105px;
+    }
+    display: none;
+  }
