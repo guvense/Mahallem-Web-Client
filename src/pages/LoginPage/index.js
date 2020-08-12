@@ -22,7 +22,7 @@ const LoginPage = (props) => {
     if (logging) {
       history.push(from);
     }
-  }, [history, logging, from, user.id]);
+  }, [history, logging, from, user]);
 
   const dispatch = useDispatch();
 

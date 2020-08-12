@@ -18,6 +18,13 @@
             margin-right: auto;
             display: flex;  
         }
+
+        .profil-picture {
+            @extend .center;
+            border-radius: 50%;
+            height: 150px;
+            width: 150px;
+        }
         .book-marker {
         
             @extend .base-book-marker;
@@ -78,6 +85,10 @@
         margin-top: 20px;
     }
 
-}
+    .profil-pic{
+        @extend .center;
+        border-radius: 50%;
+    }
 
+}
 

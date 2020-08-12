@@ -12,7 +12,15 @@ const CustomButton = (props) => {
         <CustomIcon name="plus-button"  className="plus-button" width={props.width} height={props.height}/>
         </label>
         )
-    }else {
+    }else if(props.type == "empty-user-add") {
+        return (
+            <label className="empty-user-add-button">
+            <input type="submit" name="image" value="one" onClick={props.onClick}></input>
+            <CustomIcon name="empty-user-with-plus"  className="plus-button" width={props.width} height={props.height}/>
+            </label>
+            )
+    }
+    else {
         return (
             <div >
             <label className="plus-button" className= {props.className} >
