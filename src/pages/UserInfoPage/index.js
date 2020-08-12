@@ -35,8 +35,6 @@ const UserInfoPage = (props) => {
   };
 
   let picture;
-
-  console.log(userInfo);
   var pictureUrl = userInfo["profile_picture_url"];
   if (pictureUrl) {
     picture = <img className="profil-picture" src={pictureUrl} />;
@@ -50,6 +48,13 @@ const UserInfoPage = (props) => {
       />
     );
   }
+
+  var userName = userInfo["username"];
+  var lastName = userInfo["last_name"];
+  var firstName = userInfo["first_name"];
+  var email = userInfo["email"];
+  var cellPhone = userInfo["cell_phone"];
+  var age = userInfo["age"];
 
   return (
     <>
@@ -69,21 +74,47 @@ const UserInfoPage = (props) => {
           {picture}
 
           <Typography className="card-item">
-            {Object.entries(userInfo)
-              .filter(checkKey)
-              .map(
-                ([key, value], i) =>
-                  value !== null && (
-                    <div>
-                      <CustomIcon
-                        name="pre-line"
-                        width={30}
-                        height={30}
-                      ></CustomIcon>
-                      {value}
-                    </div>
-                  )
-              )}
+            {userName && (
+              <div>
+                <CustomIcon name="pre-line" width={30} height={30}></CustomIcon>
+                {userName}
+              </div>
+            )}
+
+            {firstName && (
+              <div>
+                <CustomIcon name="pre-line" width={30} height={30}></CustomIcon>
+                {firstName}
+              </div>
+            )}
+
+            {lastName && (
+              <div>
+                <CustomIcon name="pre-line" width={30} height={30}></CustomIcon>
+                {lastName}
+              </div>
+            )}
+
+            {email && (
+              <div>
+                <CustomIcon name="pre-line" width={30} height={30}></CustomIcon>
+                {email}
+              </div>
+            )}
+
+            {cellPhone && (
+              <div>
+                <CustomIcon name="pre-line" width={30} height={30}></CustomIcon>
+                {cellPhone}
+              </div>
+            )}
+
+            {age && (
+              <div>
+                <CustomIcon name="pre-line" width={30} height={30}></CustomIcon>
+                {age}
+              </div>
+            )}
           </Typography>
 
           <Button className="update-button card-item" onClick={onModal}>
