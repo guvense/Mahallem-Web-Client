@@ -26,35 +26,30 @@ const UserInfoPage = (props) => {
     dispatch(retrieveUserInfoRequest());
   }, [userInfoUpdateModalStatus]);
 
-  const checkKey = ([key, value], i) => {
-    return value !== null && key != "id" ? true : false;
-  };
-
   const onModal = () => {
     dispatch(openUserUpdateModal());
   };
 
-  let picture;
-  var pictureUrl = userInfo["profile_picture_url"];
-  if (pictureUrl) {
-    picture = <img className="profil-picture" src={pictureUrl} />;
-  } else {
-    picture = (
-      <CustomIcon
-        name="empty-user-with-plus"
-        width={100}
-        height={100}
-        className="empty-user"
-      />
-    );
-  }
+  const pictureURL = userInfo["profile_picture_url"];
+  const picture = pictureURL ? (
+    <img className="profil-picture" src={pictureURL} />
+  ) : (
+    <CustomIcon
+      name="empty-user-with-plus"
+      width={100}
+      height={100}
+      className="empty-user"
+    />
+  );
 
-  var userName = userInfo["username"];
-  var lastName = userInfo["last_name"];
-  var firstName = userInfo["first_name"];
-  var email = userInfo["email"];
-  var cellPhone = userInfo["cell_phone"];
-  var age = userInfo["age"];
+  const {
+    username: userName,
+    last_name: lastName,
+    first_name: firstName,
+    cell_phone: cellPhone,
+    email: email,
+    age: age,
+  } = userInfo;
 
   return (
     <>

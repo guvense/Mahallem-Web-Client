@@ -24,10 +24,7 @@ export function* updateUserInfoFlow(action) {
     console.log(res);
     yield put(updateUserInfoSuccess());
   } catch (err) {
-    const {
-      error: { detail },
-    } = err;
-    yield put(error(detail));
+    yield put(error(err.error));
   }
 }
 

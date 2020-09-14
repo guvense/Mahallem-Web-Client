@@ -1,4 +1,3 @@
-import "./App.scss";
 import React, { useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
 
@@ -14,6 +13,7 @@ import {
 import { isAuthenticated } from "global/authentication/utils";
 import { useWindowEvent } from "utils/useWindowEvent";
 import { SERVER_URL } from "utils/constants";
+import "./App.scss";
 
 const App = (props) => {
   const dispatch = useDispatch();

@@ -4,8 +4,8 @@ import { useSelector, useDispatch } from "react-redux";
 import "./UserInfo.scss";
 import CustomIcon from "assets/svg/CustomIcon";
 import { Card, CardContent } from "@material-ui/core";
-import CustomTextField from "../../global/customComponent/CustomTextField";
-import CustomButton from "../../global/customComponent/button";
+import CustomTextField from "../../global/CustomComponent/CustomTextField";
+import CustomButton from "../../global/CustomComponent/button";
 import { updateUserInfoRequest } from "./reducer";
 
 import api from "./api";
