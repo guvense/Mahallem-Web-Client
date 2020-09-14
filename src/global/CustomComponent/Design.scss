@@ -1,0 +1,23 @@
+
+@import '../design/tools.scss';
+.plus-button{
+
+    @extend .base-plus-button;
+
+
+}
+
+.empty-user-add-button {
+    text-align: center;
+}
+
+label:hover{
+    cursor: pointer;
+}
+
+input[type="submit"]{
+    &:hover {
+        top: 105px;
+    }
+    display: none;
+  }

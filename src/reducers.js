@@ -11,6 +11,7 @@ import authenticate from "global/authentication/reducer";
 import header from "../src/layouts/DefaultLayout/components/menu/reducer"
 import createTask from "./pages/TaskPage/reducer"
 import home from "./pages/HomeController/reducer"
+import user from "./pages/UserInfoPage/reducer"
 
 /**
  * Merges the main reducer with router state and dynamically injected reducers
@@ -22,6 +23,7 @@ export default function createReducer(injectedReducers = {}) {
     header: header,
     createTask: createTask,
     home: home,
+    user: user,
     router: connectRouter(history),
     ...injectedReducers,
   });

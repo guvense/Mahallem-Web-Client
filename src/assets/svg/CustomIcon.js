@@ -11,10 +11,13 @@ const getViewBox = name => {
       return "0 0 31 38";
     case "user":
       return "0 0 205 297";
+    case "empty-user":
+      return "0 0 24 24";
     default:
       return "0 0 32 32";
   }
 };
+const colors = ["#0275D8", "#D82222", "#FFB00A", "#43A4F3", "#FFB00A","#FFB303","#FF71A7"]
 
    const getPath = (name, props) => {
     switch (name) {
@@ -41,10 +44,36 @@ const getViewBox = name => {
             </svg>
             
           )
-        case "user":
 
-            
-          const colors = ["#0275D8", "#D82222", "#FFB00A", "#43A4F3", "#FFB00A"]
+        case "pre-line":
+          
+          var index = 0 + Math.floor((colors.length - 1) * Math.random());
+
+         return (
+          <svg width={props.width} height={props.height} className={props.className}  style={props.style} viewBox="0 0 2 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0.830566 24.467V0.927612" stroke={colors[index]} stroke-width="0.541136"/>
+          </svg>
+          )
+
+        case "empty-user-with-plus":
+  
+           return (
+            <svg width={props.width} height={props.height} className={props.className} style={props.style} viewBox="0 0 22 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <ellipse rx="7.87037" ry="8.18182" transform="matrix(-1 0 0 1 11 8.18182)" fill="#C4C4C4"/>
+            <ellipse rx="10.4938" ry="14.5455" transform="matrix(-1 0 0 1 11 35.4544)" fill="#C4C4C4"/>
+            <path d="M11.018 27.1844V43.2039M4.68334 35.4198H17.4186" stroke="white" stroke-width="2.06161" stroke-linecap="round"/>
+            </svg>
+            )
+
+
+        case "empty-user":
+  
+            return (
+              <svg width={props.width} height={props.height} className={props.className} style={props.style}  viewBox={props.viewBox} fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 3C10.9391 3 9.92172 3.42143 9.17157 4.17157C8.42143 4.92172 8 5.93913 8 7C8 8.06087 8.42143 9.07828 9.17157 9.82843C9.92172 10.5786 10.9391 11 12 11C13.0609 11 14.0783 10.5786 14.8284 9.82843C15.5786 9.07828 16 8.06087 16 7C16 5.93913 15.5786 4.92172 14.8284 4.17157C14.0783 3.42143 13.0609 3 12 3ZM12 14C8.996 14 3 15.508 3 18.5V20C3 20.552 3.448 21 4 21H20C20.552 21 21 20.552 21 20V18.5C21 15.508 15.004 14 12 14Z" fill="#C4C4C4"/>
+              </svg>
+              )
+        case "user":
 
           var indexfirst = 0 + Math.floor((colors.length - 1) * Math.random());
           var indexSecond = 0 + Math.floor((colors.length - 1) * Math.random());

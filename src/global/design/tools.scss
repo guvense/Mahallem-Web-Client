@@ -37,8 +37,28 @@
     background-color: #FFFFFF;
 }
 
+.center {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;  
+}
+
 .back-go-button-size {
 
     height: 34px;
     width: 34px;
+}
+
+.base-book-marker {
+    position: relative;
+    margin-left:auto; 
+    margin-right:0;  
+}
+
+.base-plus-button {
+    text-align: center;
+  
+    #circle:hover {
+        fill:  #C4C4C4;
+      }
 }

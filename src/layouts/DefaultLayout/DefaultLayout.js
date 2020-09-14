@@ -18,7 +18,7 @@ const DefaultLayout = ({
 }) => {
     return (
         <Layout style={{ minHeight: '100vh' }}>
-            {!disableSidebar && <DefaultSidebar currentRoute={currentRoute} />}
+           {!disableSidebar && <DefaultSidebar currentRoute={currentRoute} />}
             <Layout>
                 {!disableHeader && <DefaultHeader />}
                 <DefaultContent> {children} </DefaultContent>

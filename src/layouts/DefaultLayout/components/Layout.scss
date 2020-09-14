@@ -1,13 +1,16 @@
+.onHover {
+    cursor: pointer;
+    transition: color 0.3s;
+    :hover{
+        color: blue;
+    }
+}
+
 .trigger {
     font-size: 18px;
     line-height: 64px;
     padding: 0 24px;
-    cursor: pointer;
-    transition: color 0.3s;
-}
-
-.trigger:hover{
-    color: blue;
+    @extend .onHover;
 }
 
 .ant-menu-item a {
@@ -37,10 +40,10 @@
   }
 
   .header-div:first-child {
-   margin-left: 100px;
+   margin-left: 50px;
   }
   .header-div:last-child{
-    margin-right: 100px;
+    margin-right: 130px;
    }
 
    .arrow-icon {
@@ -54,3 +57,6 @@
        color: #000000;
 
    }
+.user-icon{
+    @extend .onHover
+}
