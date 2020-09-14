@@ -1,12 +1,17 @@
 import React from "react";
 
-import { HomePage, LoginPage, RegisterPage } from "pages";
+import { HomePage, LoginPage, RegisterPage, UserInfoPage } from "pages";
 
 export const routes = [
   {
     path: "/",
     component: HomePage,
     protect: true,
+    layoutProps: {
+      disableHeader: false,
+      disableSidebar: true,
+      disableFooter: true,
+    },
   },
   {
     path: "/login",
@@ -26,12 +31,13 @@ export const routes = [
       disableFooter: true,
     },
   },
-  /*
-    {
-        path: '/page-sample',
-        component: LoginPage,
-        protect: true,
-        sidebar: () => <span>Sample Page</span>
+  {
+    path: "/user-info",
+    component: UserInfoPage,
+    layoutProps: {
+      disableHeader: false,
+      disableSidebar: true,
+      disableFooter: false,
     },
-    */
+  },
 ];

@@ -68,7 +68,7 @@ const CreateTaskModal = (props) => {
       <> 
     <Modal visible={createTaskPopUpShow} onCancel={handleClose} footer={null}>
     <h1>Creating Task</h1>
-    <CustomIcon name="bookmarker" style={styles} className="book-marker" width={50} height={50}/>
+    <CustomIcon name="bookmarker" className="book-marker" width={50} height={50}/>
     <CustomIcon name="create-task" className="create-task-icon" width={40} height={40}/>
     <Form
     name="creating_task"

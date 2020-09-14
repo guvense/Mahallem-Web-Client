@@ -8,7 +8,8 @@ import Pet from "./menu/Pet"
 import Social from "./menu/Social"
 import { useSelector, useDispatch } from "react-redux";
 import { showCreateTask } from "./menu/reducer";
-
+import { useHistory } from "react-router-dom";
+import CustomIcon from "assets/svg/CustomIcon"
 
 const Header = (props) => {
 
@@ -17,7 +18,14 @@ const Header = (props) => {
   const showTaskManagement = () => {
     dispatch(showCreateTask());
   };
+  const history = useHistory();
 
+  const toUserInfo = "/user-info";
+
+  const pushUserInfo = () => {
+    console.log("Triggered" + toUserInfo);
+    history.push(toUserInfo);
+  }
 
   const TaskManagement = (
       <Menu>
@@ -41,34 +49,34 @@ const Header = (props) => {
         <div className="header-div">
         <Dropdown  overlay={TaskManagement} className="header-element">
            <a onClick={e => e.preventDefault()}>
-            Task Management
-          <EnterOutlined className="arrow-icon"/>
+            Task Management    
           </a>
           </Dropdown>
           <Dropdown overlay={Notification} className="header-element">
           <a onClick={e => e.preventDefault()}>
            Notifications
-         <EnterOutlined className="arrow-icon"/>
+        
          </a>
          </Dropdown>
           
           <img src={Logo} className="logo" alt="Mahallem" /> 
-        
           <Dropdown overlay={Pet} className="header-element">
           <a onClick={e => e.preventDefault()}>
            Pets
-         <EnterOutlined className="arrow-icon"/>
+         
          </a>
          </Dropdown>
          <Dropdown overlay={Social} className="header-element">
          <a onClick={e => e.preventDefault()}>
           Social
-        <EnterOutlined className="arrow-icon"/>
+        
         </a>
         </Dropdown>
+        <div onClick={pushUserInfo}>
+        <CustomIcon name="empty-user" width={70} height={70} className="user-icon"></CustomIcon>
 
-        <Avatar className="header-element" size={64} icon={<UserOutlined />} />
-      
+        </div>
+
         </div>
         </div>
         </>
