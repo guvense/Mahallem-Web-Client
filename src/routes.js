@@ -1,6 +1,12 @@
 import React from "react";
 
-import { HomePage, LoginPage, RegisterPage, UserInfoPage } from "pages";
+import {
+  HomePage,
+  LoginPage,
+  RegisterPage,
+  UserInfoPage,
+  HouseInfoPage,
+} from "pages";
 
 export const routes = [
   {
@@ -34,6 +40,15 @@ export const routes = [
   {
     path: "/user-info",
     component: UserInfoPage,
+    layoutProps: {
+      disableHeader: false,
+      disableSidebar: true,
+      disableFooter: false,
+    },
+  },
+  {
+    path: "/house-info",
+    component: HouseInfoPage,
     layoutProps: {
       disableHeader: false,
       disableSidebar: true,

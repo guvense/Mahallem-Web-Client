@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "latest",
+    "@material-ui/lab": "latest",
     "@redux-saga/simple-saga-monitor": "^1.1.2",
     "@reduxjs/toolkit": "^1.2.5",
     "@svgr/core": "^5.4.0",
