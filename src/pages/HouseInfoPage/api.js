@@ -4,16 +4,30 @@ import { message } from "antd";
 const api = {
   retrieveHouseInfo() {
     return axios.get("/house").then((response) => {
-      /* if (response.data.success === true) {
-        return Promise.resolve({ house: response.data.data });
-      } else {
-        message.error(response.data.error_message.message);
-        WarningAlert(response.data.error_message.message);
-        return Promise.reject({ error: response.data.error_message.message });
-      }*/
-
       return response.data;
     });
+  },
+
+  createHouse(payload) {
+    return axios
+      .post("/house/add-house", {
+        name: payload.name,
+        house_status: payload.status,
+      })
+      .then((response) => {
+        return response.data;
+      });
+  },
+
+  updateHouseInfo(payload) {
+    return axios
+      .put("/house", {
+        name: payload.name,
+        house_status: payload.status,
+      })
+      .then((response) => {
+        return response.data;
+      });
   },
 };
 

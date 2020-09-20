@@ -5,12 +5,15 @@ import Snackbar from "@material-ui/core/Snackbar";
 import MuiAlert from "@material-ui/lab/Alert";
 import CustomModal from "../CustomModal";
 import CustomIcon from "assets/svg/CustomIcon";
-import HouseInfoModal from "./HouseInfoModal";
+import HouseInfoCreateModal from "./HouseInfoCreateModal";
+import HouseInfoUpdateModal from "./HouseInfoUpdateModal";
 
 import {
   retrieveHouseInfoRequest,
   openHouseUpdateModal,
   closeHouseUpdateModal,
+  openHouseCreateModal,
+  closeHouseCreateModal,
 } from "./reducer";
 
 function Alert(props) {
@@ -18,9 +21,12 @@ function Alert(props) {
 }
 
 const HouseInfoPage = (props) => {
-  const { house, error, userHouseUpdateStatus } = useSelector(
-    (state) => state.house
-  );
+  const {
+    house,
+    error,
+    userHouseUpdateStatus,
+    userHouseCreateStatus,
+  } = useSelector((state) => state.house);
 
   const dispatch = useDispatch();
 
@@ -35,70 +41,60 @@ const HouseInfoPage = (props) => {
   }, [error]);
 
   const [open, setOpen] = React.useState(false);
-  const handleClose = (event, reason) => {
+  const handleClose = () => {
     setOpen(false);
   };
 
   const onModal = () => {
-    dispatch(openHouseUpdateModal());
+    error ? dispatch(openHouseCreateModal()) : dispatch(openHouseUpdateModal());
   };
 
-  const closeModal = () => {
+  const closeHouseCreateModalAction = () => {
+    dispatch(closeHouseCreateModal());
+  };
+
+  const closeHouseUpdateModalAction = () => {
     dispatch(closeHouseUpdateModal());
   };
 
   const buttonName = error ? "Add House" : "Update";
 
+  const { name: name, house_status: houseStatus } = house;
+
   const content = (
-    <Typography className="card-item">
-      {"deneme" && (
-        <div>
-          <CustomIcon name="pre-line" width={30} height={30}></CustomIcon>
-          "deneme"
-        </div>
-      )}
+    <div>
+      <Typography className="card-item">
+        {name && (
+          <div>
+            <CustomIcon name="pre-line" width={30} height={30}></CustomIcon>
+            {name}
+          </div>
+        )}
 
-      {"firstName" && (
-        <div>
-          <CustomIcon name="pre-line" width={30} height={30}></CustomIcon>
-          {"firstName"}
-        </div>
-      )}
-
-      {"lastName" && (
-        <div>
-          <CustomIcon name="pre-line" width={30} height={30}></CustomIcon>
-          {"lastName"}
-        </div>
-      )}
-
-      {"email" && (
-        <div>
-          <CustomIcon name="pre-line" width={30} height={30}></CustomIcon>
-          {"email"}
-        </div>
-      )}
-
-      {"cellPhone" && (
-        <div>
-          <CustomIcon name="pre-line" width={30} height={30}></CustomIcon>
-          {"cellPhone"}
-        </div>
-      )}
-
-      {"age" && (
-        <div>
-          <CustomIcon name="pre-line" width={30} height={30}></CustomIcon>
-          {"age"}
-        </div>
-      )}
-    </Typography>
+        {houseStatus && (
+          <div>
+            <CustomIcon name="pre-line" width={30} height={30}></CustomIcon>
+            {houseStatus}
+          </div>
+        )}
+      </Typography>
+    </div>
   );
 
   return (
     <>
-      <CustomModal isOpen={userHouseUpdateStatus} onClose={closeModal}>
-        <HouseInfoModal />
+      <CustomModal
+        isOpen={userHouseCreateStatus}
+        onClose={closeHouseCreateModalAction}
+      >
+        <HouseInfoCreateModal />
+      </CustomModal>
+
+      <CustomModal
+        isOpen={userHouseUpdateStatus}
+        onClose={closeHouseUpdateModalAction}
+      >
+        <HouseInfoUpdateModal />
       </CustomModal>
 
       <Card className="card">
@@ -116,12 +112,14 @@ const HouseInfoPage = (props) => {
             </Alert>
           </Snackbar>
 
-          {error && (
+          {error ? (
             <>
               <Typography className="card-item">
                 You should add a house
               </Typography>
             </>
+          ) : (
+            content
           )}
           <Button className="update-button card-item" onClick={onModal}>
             {buttonName}

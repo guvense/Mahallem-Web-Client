@@ -8,6 +8,7 @@ const initialState = {
   house: {},
   error: null,
   userHouseUpdateStatus: false,
+  userHouseCreateStatus: false,
 };
 
 const name = "house";
@@ -18,17 +19,31 @@ const authSlice = createSlice({
   reducers: {
     retrieveHouseInfoRequest() {},
     retrieveHouseInfoSuccess(state, action) {
-      state.house = action.payload.house;
+      state.house = action.payload;
     },
     updateHouseInfoRequest() {},
-    updateHouseInfoSuccess(state) {
-      state.userHouseUpdateStatus = true;
+    updateHouseInfoSuccess(state, action) {
+      state.userHouseUpdateStatus = false;
+      state.house = action.payload;
+      state.error = null;
     },
     closeHouseUpdateModal(state) {
       state.userHouseUpdateStatus = false;
     },
     openHouseUpdateModal(state) {
       state.userHouseUpdateStatus = true;
+    },
+    createHouseInfoRequest() {},
+    createHouseInfoSuccess(state, action) {
+      state.userHouseCreateStatus = false;
+      state.house = action.payload;
+      state.error = null;
+    },
+    closeHouseCreateModal(state) {
+      state.userHouseCreateStatus = false;
+    },
+    openHouseCreateModal(state) {
+      state.userHouseCreateStatus = true;
     },
     error(state, action) {
       state.error = action.payload;
@@ -43,6 +58,10 @@ export const {
   updateHouseInfoSuccess,
   closeHouseUpdateModal,
   openHouseUpdateModal,
+  createHouseInfoRequest,
+  createHouseInfoSuccess,
+  closeHouseCreateModal,
+  openHouseCreateModal,
   error,
 } = authSlice.actions;
 

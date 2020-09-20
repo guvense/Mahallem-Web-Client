@@ -6,11 +6,9 @@ import CustomIcon from "assets/svg/CustomIcon";
 import { Card, CardContent } from "@material-ui/core";
 import CustomTextField from "../../global/CustomComponent/CustomTextField";
 import CustomButton from "../../global/CustomComponent/button";
-import { updateHouseInfoRequest } from "./reducer";
+import { createHouseInfoRequest } from "./reducer";
 
-import api from "./api";
-
-const HouseInfoModal = (props) => {
+const HouseInfoCreateModal = (props) => {
   const [name, setName] = useState(null);
   const [status, setStatus] = useState(null);
 
@@ -20,10 +18,13 @@ const HouseInfoModal = (props) => {
     event.preventDefault();
 
     var payload = {
-      name,
-      status,
+      name: name,
+      status: status,
     };
-    dispatch(updateHouseInfoRequest(payload));
+    console.log("create");
+
+    console.log(payload);
+    dispatch(createHouseInfoRequest(payload));
   };
 
   return (
@@ -48,7 +49,7 @@ const HouseInfoModal = (props) => {
             <CustomTextField
               variant="outlined"
               className="text-field"
-              label="Last Name"
+              label="Status"
               onChange={(event) => setStatus(event.target.value)}
             />
 
@@ -60,4 +61,4 @@ const HouseInfoModal = (props) => {
   );
 };
 
-export default HouseInfoModal;
+export default HouseInfoCreateModal;
