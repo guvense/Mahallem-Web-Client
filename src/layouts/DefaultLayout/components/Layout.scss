@@ -22,8 +22,8 @@
 .logo {
 
     width: 200px;
-
-    @extend .logo-base
+    @extend .onHover, .logo-base
+    
 }
 
 .header {

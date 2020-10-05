@@ -21,7 +21,6 @@ export function* retrieveUserInfoFlow(action) {
 export function* updateUserInfoFlow(action) {
   try {
     const res = yield call(userApi.updateUserInfo, action.payload);
-    console.log(res);
     yield put(updateUserInfoSuccess());
   } catch (err) {
     yield put(error(err.error));

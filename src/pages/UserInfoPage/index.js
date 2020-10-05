@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import CustomIcon from "assets/svg/CustomIcon";
-import "./UserInfo.scss";
 import { Button, Card, CardContent, Typography } from "@material-ui/core";
 import {
   retrieveUserInfoRequest,
@@ -10,6 +9,7 @@ import {
 } from "./reducer";
 import AddUserInfo from "./AddUserInfo";
 import CustomModal from "../CustomModal";
+import "./UserInfo.scss";
 
 const UserInfoPage = (props) => {
   const { userInfo, userInfoUpdateModalStatus } = useSelector(
